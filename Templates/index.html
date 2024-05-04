@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        .column {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-top: 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Weekday and Weekend Food Options</h1>
+    </header>
+    
+    <div class="container">
+        <div class="column">
+            <h2>Weekday Food Options</h2>
+            <ul id="weekday-list"></ul>
+            <button onclick="addItem('weekday')">Add Item</button>
+        </div>
+        <div class="column">
+            <h2>Weekend Food Options</h2>
+            <ul id="weekend-list"></ul>
+            <button onclick="addItem('weekend')">Add Item</button>
+        </div>
+    </div>
+    
+    <script>
+        function addItem(day) {
+            var newItem = prompt("Enter food item for " + day + ":");
+            if (newItem) {
+                var list = document.getElementById(day + "-list");
+
+                var li = document.createElement("li");
+                li.textContent = newItem;
+                list.appendChild(li);
+            }
+        }
+
+        window.onload = function() {
+            var weekdayList = document.getElementById("weekday-list");
+            var weekendList = document.getElementById("weekend-list");
+            
+            // Sample food options
+            var weekdayFood = ["Oatmeal", "Sandwich", "Salad"];
+            var weekendFood = ["Pancakes", "Pizza", "BBQ"];
+            
+            // Populate weekday food options
+            weekdayFood.forEach(function(item) {
+                var li = document.createElement("li");
+                li.textContent = item;
+                weekdayList.appendChild(li);
+            });
+            
+            // Populate weekend food options
+            weekendFood.forEach(function(item) {
+                var li = document.createElement("li");
+                li.textContent = item;
+                weekendList.appendChild(li);
+            });
+        };
+    </script>
+</body>
+</html>

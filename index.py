@@ -1,13 +1,10 @@
-from flask import Flask,render_template,request,url_for,jsonify
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-
-@app.route('/getList')
-def getMenuItem():
-    data = request.json
-    print(data)
-    return jsonify({'ok' : '200'})
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
