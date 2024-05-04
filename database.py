@@ -44,6 +44,3 @@ if __name__ == '__main__':
     items = get_items()
     for item in items:
         print(item)
-
-
-
